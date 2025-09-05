@@ -38,6 +38,8 @@ class AuthMiddleware
                 // 旧版本
                 $stream = \GuzzleHttp\Psr7\stream_for(json_encode($jsonData));
             }
+            $request = $request->withBody($stream);
+            
             return $handler($request, $options);
         };
         

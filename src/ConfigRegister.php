@@ -15,6 +15,7 @@ class ConfigRegister
         return [
             'dependencies' => [
                 Contract\OrderInterface::class      => Services\OrderService::class,
+                Contract\ShippingInterface::class      => Services\ShippingService::class,
             ],
 
             'temu' => [

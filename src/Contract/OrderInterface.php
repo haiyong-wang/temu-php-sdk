@@ -11,4 +11,6 @@ interface OrderInterface
 
     public function getOrderShippingInfo(string $orderId, array $header = []);
 
+    public function getOrderAmount(string $orderId, array $header = []);
+
 }

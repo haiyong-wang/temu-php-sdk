@@ -38,4 +38,13 @@ class OrderTest extends Base
         
         $this->assertNotEmpty($response);
     }
+
+     public function testGetOrderAmount()
+    {
+        // 获取费用
+        $orderId = '302-1734531-6885123';
+        $response = OrderFacade::getOrderAmount($orderId);
+        
+        $this->assertNotEmpty($response);
+    }
 }

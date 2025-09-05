@@ -72,4 +72,22 @@ class OrderService extends BaseService implements OrderInterface
         return $result['data'] ?? [];
     }
 
+    //bg.order.amount.query
+    public function getOrderAmount(string $orderId, array $header = []): array
+    {
+        $params   = [
+            'orderId' => $orderId,
+            'type' =>'bg.order.amount.query'
+        ];
+        $todayMidnightTimestamp = strtotime('today');
+        $params['type'] = 'bg.order.list.v2.get';
+        $params['app_key'] = 'test_app_key';
+        $params['access_token'] = 'test_access_token';
+        $params['timestamp'] = $todayMidnightTimestamp;
+        $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
+        $result   = json_decode($response->getBody()->getContents(), true);
+        $this->checkResponse($result);
+        return $result['data'] ?? [];
+    }
+
 }
