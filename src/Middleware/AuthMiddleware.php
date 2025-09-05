@@ -30,9 +30,14 @@ class AuthMiddleware
             $jsonData = json_decode($body, true);
             $sign = $this->generateSignature($jsonData,$jsonData['app_key']);
             $jsonData['sign'] = $sign;
-            $request = $request->withBody(
-                \GuzzleHttp\Psr7\Utils::streamFor(json_encode($jsonData))
-            );
+            // 兼容不同版本的GuzzleHttp PSR-7
+            if (class_exists('\GuzzleHttp\Psr7\Utils')) {
+                // 新版本 (7.0+)
+                $stream = \GuzzleHttp\Psr7\Utils::streamFor(json_encode($jsonData));
+            } else {
+                // 旧版本
+                $stream = \GuzzleHttp\Psr7\stream_for(json_encode($jsonData));
+            }
             return $handler($request, $options);
         };
         
