@@ -32,7 +32,6 @@ class AuthMiddleware
             $appSecret     = $this->config['extra']['app_secret'] ?? '';
             $appKey     = $this->config['extra']['app_key'] ?? '';
             $timestamp    = time();
-            var_dump($accessToken);die;
 
             $body = (string) $request->getBody();
             $jsonData = json_decode($body, true);

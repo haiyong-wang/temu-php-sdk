@@ -18,7 +18,7 @@ class AuthService implements AuthInterface
     public function __construct(HttpClientInterface $httpClient, ConfigInterface $config)
     {
         $this->httpClient = $httpClient;
-        $this->driver     = $config->get('temu.' . TemuEnum::CHANNEL_AUTH);
+        $this->driver     = $config->get('temu.' . TemuEnum::CHANNEL_API);
         $this->config     = $config;
     }
 
