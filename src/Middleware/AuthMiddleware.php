@@ -26,9 +26,20 @@ class AuthMiddleware
     public function __invoke(callable $handler): callable
     {
         return function (RequestInterface  $request, array $options) use ($handler) {
+
+            $this->config = $this->appConfig->get("http.channels.{$this->channel}"); // 刷新单例到最新配置
+            $accessToken  = $this->config['extra']['access_token'] ?? '';
+            $appSecret     = $this->config['extra']['app_secret'] ?? '';
+            $appKey     = $this->config['extra']['app_key'] ?? '';
+            $timestamp    = time();
+            var_dump($accessToken);die;
+
             $body = (string) $request->getBody();
             $jsonData = json_decode($body, true);
-            $sign = $this->generateSignature($jsonData,$jsonData['app_key']);
+            $jsonData['app_key'] =$appKey;
+            $jsonData['accessToken'] =$accessToken;
+            $jsonData['timestamp'] =$timestamp;
+            $sign = $this->generateSignature($jsonData,$appSecret);
             $jsonData['sign'] = $sign;
             // 兼容不同版本的GuzzleHttp PSR-7
             if (class_exists('\GuzzleHttp\Psr7\Utils')) {

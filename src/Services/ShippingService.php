@@ -22,11 +22,11 @@ class ShippingService extends BaseService implements ShippingInterface
     // bg.logistics.shipment.v2.confirm 上传跟踪号
     public function setShipments(array $params, array $header = []): array
     {
-        $todayMidnightTimestamp = strtotime('today');
+        // $todayMidnightTimestamp = strtotime('today');
         $params['type'] = 'bg.logistics.shipment.v2.confirm';
-        $params['app_key'] = 'test_app_key';
-        $params['access_token'] = 'test_access_token';
-        $params['timestamp'] = $todayMidnightTimestamp;
+        // $params['app_key'] = 'test_app_key';
+        // $params['access_token'] = 'test_access_token';
+        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->driver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);

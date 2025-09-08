@@ -24,11 +24,10 @@ class OrderService extends BaseService implements OrderInterface
     public function getOrder(array $params, array $header = []): array
     {
         // bg.order.list.v2.get
-        $todayMidnightTimestamp = strtotime('today');
         $params['type'] = 'bg.order.list.v2.get';
-        $params['app_key'] = 'test_app_key';
-        $params['access_token'] = 'test_access_token';
-        $params['timestamp'] = $todayMidnightTimestamp;
+        // $params['app_key'] = 'f860e759073f9d1e5c8bbeb7baac1dbf';
+        // $params['access_token'] = 'eplwmc9efqzy0rwenlz8jsmkumobexpyzhzy6qzfz6bpn8ygeq5hikzfeq7';
+        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->driver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
@@ -42,10 +41,10 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.detail.v2.get'
         ];
-        $todayMidnightTimestamp = strtotime('today');
-        $params['app_key'] = 'test_app_key';
-        $params['access_token'] = 'test_access_token';
-        $params['timestamp'] = $todayMidnightTimestamp;
+        // $todayMidnightTimestamp = strtotime('now');
+        // $params['app_key'] = 'test_app_key';
+        // $params['access_token'] = 'test_access_token';
+        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
@@ -60,10 +59,10 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.shippinginfo.v2.get'
         ];
-        $todayMidnightTimestamp = strtotime('today');
-        $params['app_key'] = 'test_app_key';
-        $params['access_token'] = 'test_access_token';
-        $params['timestamp'] = $todayMidnightTimestamp;
+        // $todayMidnightTimestamp = strtotime('now');
+        // $params['app_key'] = 'test_app_key';
+        // $params['access_token'] = 'test_access_token';
+        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
@@ -77,10 +76,10 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.amount.query'
         ];
-        $todayMidnightTimestamp = strtotime('today');
-        $params['app_key'] = 'test_app_key';
-        $params['access_token'] = 'test_access_token';
-        $params['timestamp'] = $todayMidnightTimestamp;
+        // $todayMidnightTimestamp = strtotime('now');
+        // $params['app_key'] = 'test_app_key';
+        // $params['access_token'] = 'test_access_token';
+        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
