@@ -36,7 +36,7 @@ class AuthMiddleware
             $body = (string) $request->getBody();
             $jsonData = json_decode($body, true);
             $jsonData['app_key'] =$appKey;
-            $jsonData['accessToken'] =$accessToken;
+            $jsonData['access_token'] =$accessToken;
             $jsonData['timestamp'] =$timestamp;
             $sign = $this->generateSignature($jsonData,$appSecret);
             $jsonData['sign'] = $sign;
