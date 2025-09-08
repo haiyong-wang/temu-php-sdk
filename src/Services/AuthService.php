@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Lensen\Sellfox\Services;
+namespace Lensen\Temu\Services;
 
 use Exewen\Config\Contract\ConfigInterface;
 use Exewen\Http\Contract\HttpClientInterface;
