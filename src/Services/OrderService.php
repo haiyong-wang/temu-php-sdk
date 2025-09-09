@@ -25,13 +25,10 @@ class OrderService extends BaseService implements OrderInterface
     {
         // bg.order.list.v2.get
         $params['type'] = 'bg.order.list.v2.get';
-        // $params['app_key'] = 'f860e759073f9d1e5c8bbeb7baac1dbf';
-        // $params['access_token'] = 'eplwmc9efqzy0rwenlz8jsmkumobexpyzhzy6qzfz6bpn8ygeq5hikzfeq7';
-        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->driver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
-        return $result['data'] ?? [];
+        return $result['result'] ?? [];
     }
 
     // bg.order.detail.v2.get
@@ -41,14 +38,10 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.detail.v2.get'
         ];
-        // $todayMidnightTimestamp = strtotime('now');
-        // $params['app_key'] = 'test_app_key';
-        // $params['access_token'] = 'test_access_token';
-        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
-        return $result['data'] ?? [];
+        return $result['result'] ?? [];
     }
 
 
@@ -59,14 +52,10 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.shippinginfo.v2.get'
         ];
-        // $todayMidnightTimestamp = strtotime('now');
-        // $params['app_key'] = 'test_app_key';
-        // $params['access_token'] = 'test_access_token';
-        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
-        return $result['data'] ?? [];
+        return $result['result'] ?? [];
     }
 
     //bg.order.amount.query
@@ -76,14 +65,10 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.amount.query'
         ];
-        // $todayMidnightTimestamp = strtotime('now');
-        // $params['app_key'] = 'test_app_key';
-        // $params['access_token'] = 'test_access_token';
-        // $params['timestamp'] = $todayMidnightTimestamp;
         $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
-        return $result['data'] ?? [];
+        return $result['result'] ?? [];
     }
 
 }
