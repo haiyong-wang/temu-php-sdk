@@ -23,7 +23,7 @@ class BaseService
             throw new TemuException('Temu:' . __FUNCTION__ . '响应格式异常');
         }
         if ($result['errorCode'] !== $this->responseSuccessCode) {
-            $msg = $result['msg'] ?? '';
+            $msg = $result['errorMsg'] ?? '';
             throw new TemuException('Temu:' . __FUNCTION__ . '响应code异常(' . $result['errorCode'] . ') ' . $msg);
         }
     }
