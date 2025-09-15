@@ -28,9 +28,9 @@ class AuthMiddleware
         return function (RequestInterface  $request, array $options) use ($handler) {
 
             $this->config = $this->appConfig->get("http.channels.{$this->channel}"); // 刷新单例到最新配置
-            $accessToken  = $this->config['extra']['access_token'] ?? '';
-            $appSecret     = $this->config['extra']['app_secret'] ?? '';
-            $appKey     = $this->config['extra']['app_key'] ?? '';
+            $accessToken  = $this->config['extra']['access_token'] ?? 'epsv2tatq8ynr00lurqwr7gmdufgfcsrzdmgflnkn7nc9opuagh50kngjrw';
+            $appSecret     = $this->config['extra']['app_secret'] ?? 'bc07aad230c9bb4d939002ec727c0d69dae2d30a';
+            $appKey     = $this->config['extra']['app_key'] ?? '63f1a96976f65d3089f4d60c609376fe';
             $timestamp    = time();
 
             $body = (string) $request->getBody();

@@ -16,7 +16,7 @@ class OrderTest extends Base
             'createAfter' => date("Y-m-d H:i:s", strtotime('-1 day')),
             'createBefore' => date("Y-m-d H:i:s"),
         ];
-                 AuthFacade::setAuth('sss', 'ssss', 'sss');
+                 // AuthFacade::setAuth('sss', 'ssss', 'sss');
         $response = OrderFacade::getOrder($params);
         
         $this->assertNotEmpty($response);

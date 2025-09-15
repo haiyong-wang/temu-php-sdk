@@ -25,7 +25,7 @@ class OrderService extends BaseService implements OrderInterface
     {
         // bg.order.list.v2.get
         $params['type'] = 'bg.order.list.v2.get';
-        $response = $this->httpClient->post($this->driver, '', $params, $header);
+        $response = $this->httpClient->post($this->driver, '/openapi/router', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
         return $result['result'] ?? [];
@@ -38,7 +38,7 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.detail.v2.get'
         ];
-        $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
+        $response = $this->httpClient->post($this->detailDriver, '/openapi/router', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
         return $result['result'] ?? [];
@@ -52,7 +52,7 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.shippinginfo.v2.get'
         ];
-        $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
+        $response = $this->httpClient->post($this->detailDriver, '/openapi/router', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
         return $result['result'] ?? [];
@@ -65,7 +65,7 @@ class OrderService extends BaseService implements OrderInterface
             'parentOrderSn' => $orderId,
             'type' =>'bg.order.amount.query'
         ];
-        $response = $this->httpClient->post($this->detailDriver, '', $params, $header);
+        $response = $this->httpClient->post($this->detailDriver, '/openapi/router', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
         return $result['result'] ?? [];

@@ -28,9 +28,9 @@ class ConfigRegister
                 'channels' => [
                     TemuEnum::CHANNEL_API        => [
                         'verify'          => false,
-                        'ssl'             => true,
-                        'host'            => 'openapi-b-eu.temu.com/openapi/router',
-                        'port'            => null,
+                        'ssl'             => false,
+                        'host'            => '3.123.72.134',
+                        'port'            => 9090,
                         'prefix'          => null,
                         'connect_timeout' => 3,
                         'timeout'         => 20,
@@ -47,9 +47,9 @@ class ConfigRegister
                     ],
                     TemuEnum::CHANNEL_DETAIL_API => [
                         'verify'          => false,
-                        'ssl'             => true,
-                        'host'            => 'openapi-b-eu.temu.com/openapi/router',
-                        'port'            => null,
+                        'ssl'             => false,
+                        'host'            => '3.123.72.134',
+                        'port'            => 9090,
                         'prefix'          => null,
                         'connect_timeout' => 3,
                         'timeout'         => 20,

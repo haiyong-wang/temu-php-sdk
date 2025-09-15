@@ -23,7 +23,7 @@ class ShippingService extends BaseService implements ShippingInterface
     public function setShipments(array $params, array $header = []): array
     {
         $params['type'] = 'bg.logistics.shipment.v2.confirm';
-        $response = $this->httpClient->post($this->driver, '', $params, $header);
+        $response = $this->httpClient->post($this->driver, '/openapi/router', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
         return $result['result'] ?? [];
