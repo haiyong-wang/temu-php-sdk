@@ -29,4 +29,14 @@ class ShippingService extends BaseService implements ShippingInterface
         return $result['result'] ?? [];
     }
 
+    // bg.logistics.companies.get 物流服务提供商
+    public function getLogisticsCompanies(array $params, array $header = []): array
+    {
+        $params['type'] = 'bg.logistics.companies.get';
+        $response = $this->httpClient->post($this->driver, '/openapi/router', $params, $header);
+        $result   = json_decode($response->getBody()->getContents(), true);
+        $this->checkResponse($result);
+        return $result['result'] ?? [];
+    }
+
 }

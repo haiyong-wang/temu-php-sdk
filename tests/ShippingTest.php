@@ -27,4 +27,15 @@ class ShippingTest extends Base
         
         $this->assertNotEmpty($response);
     }
+    public function testgetLogisticsCompanies()
+    {
+        // 测试获取物流服务提供商
+        $params = [
+            'regionId' => 76,
+        ];
+        
+        $response = ShippingFacade::getLogisticsCompanies($params);
+        
+        $this->assertNotEmpty($response);
+    }
 }

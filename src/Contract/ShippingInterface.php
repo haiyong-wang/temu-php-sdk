@@ -7,4 +7,6 @@ interface ShippingInterface
 {
     public function setShipments(array $params, array $header = []);
 
+    public function getLogisticsCompanies(array $params, array $header = []);
+
 }
