@@ -36,7 +36,7 @@ class ShippingService extends BaseService implements ShippingInterface
         $response = $this->httpClient->post($this->driver, '/openapi/router', $params, $header);
         $result   = json_decode($response->getBody()->getContents(), true);
         $this->checkResponse($result);
-        return $result['result'] ?? [];
+        return $result;
     }
 
 }
