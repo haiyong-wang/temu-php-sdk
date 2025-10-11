@@ -39,4 +39,14 @@ class ShippingService extends BaseService implements ShippingInterface
         return $result['result'] ?? [];
     }
 
+    // bg.logistics.warehouse.list.get 获取店铺的仓库信息
+    public function gerLogisticsWarehoustList(array $params = [], array $header = []): array
+    {
+        $params['type'] = 'bg.logistics.warehouse.list.get';
+        $response = $this->httpClient->post($this->driver, '/openapi/router', $params, $header);
+        $result   = json_decode($response->getBody()->getContents(), true);
+        $this->checkResponse($result);
+        return $result['result'] ?? [];
+    }
+
 }

@@ -9,4 +9,6 @@ interface ShippingInterface
 
     public function getLogisticsCompanies(array $params, array $header = []);
 
+    public function gerLogisticsWarehoustList(array $params = [], array $header = []);
+
 }

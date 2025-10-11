@@ -38,4 +38,12 @@ class ShippingTest extends Base
         
         $this->assertNotEmpty($response);
     }
+
+    public function testgerLogisticsWarehoustList()
+    {
+        
+        $response = ShippingFacade::gerLogisticsWarehoustList();
+        
+        $this->assertNotEmpty($response);
+    }
 }
