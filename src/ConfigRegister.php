@@ -17,6 +17,7 @@ class ConfigRegister
                 Contract\AuthInterface::class      => Services\AuthService::class,
                 Contract\OrderInterface::class      => Services\OrderService::class,
                 Contract\ShippingInterface::class      => Services\ShippingService::class,
+                Contract\ProductInterface::class    => Services\ProductService::class,
             ],
 
             'temu' => [
